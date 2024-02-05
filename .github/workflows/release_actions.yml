@@ -10,8 +10,6 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
-        with:
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Pull docker images for pyinstaller/wine
         run: |
@@ -30,3 +28,4 @@ jobs:
         uses: AButler/upload-release-assets@v3.0
         with:
           files: "./dist/linux/*;./dist/windows/*"
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
