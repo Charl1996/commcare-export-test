@@ -27,5 +27,5 @@ jobs:
       - name: Upload release assets
         uses: AButler/upload-release-assets@v3.0
         with:
-          files: "./dist/linux/*;./dist/windows/*"
           repo-token: ${{ secrets.GITHUB_TOKEN }}
+          files: "./dist/linux/*;./dist/windows/*"
