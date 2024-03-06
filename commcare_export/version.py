@@ -17,12 +17,13 @@ def stored_version():
 
 
 def git_version():
-    described_version_bytes = subprocess.Popen(
-        ['git', 'describe'],
-        stdout=subprocess.PIPE
-    ).communicate()[0].strip()
-    version_raw = described_version_bytes.decode('ascii')
-    return parse_version(version_raw)
+    # described_version_bytes = subprocess.Popen(
+    #     ['git', 'describe'],
+    #     stdout=subprocess.PIPE
+    # ).communicate()[0].strip()
+    # version_raw = described_version_bytes.decode('ascii')
+    # return parse_version(version_raw)
+    return "1.1.1"
 
 
 def parse_version(version_raw):
