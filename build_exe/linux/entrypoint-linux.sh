@@ -39,7 +39,7 @@ echo "$@"
 
 if [[ "$@" == "" ]]; then
     pyinstaller --clean -y --dist ./dist/linux --workpath /tmp *.spec
-    chmod +x ./dist/linux
+    chmod +x ./dist/linux/*
 else
     sh -c "$@"
 fi # [[ "$@" == "" ]]
