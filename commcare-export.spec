@@ -13,7 +13,7 @@ a = Analysis(
         'sqlalchemy.sql.default_comparator',
     ],
     hookspath=[],
-    runtime_hooks=['build_exe/runtime_hook.py'],
+    runtime_hooks=[],
     excludes=[],
 )
 pyz = PYZ(a.pure)
