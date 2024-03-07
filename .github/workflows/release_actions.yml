@@ -17,7 +17,6 @@ jobs:
 
       - name: Compile linux binary
         run: |
-          export EXECUTABLE=1
           docker run -v "$(pwd):/src/" dimagi/commcare-export-pyinstaller-linux
 
       - name: Upload release assets

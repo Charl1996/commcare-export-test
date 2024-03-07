@@ -5,14 +5,16 @@ a = Analysis(
     ['commcare_export/cli.py'],
     pathex=[],
     binaries=[],
-    datas=[('./commcare_export', '.')],
+    datas=[
+        ('./commcare_export', './commcare_export'),
+        ('./migrations', './migrations'),
+    ],
     hiddenimports=[
         'sqlalchemy.sql.default_comparator',
     ],
     hookspath=[],
-    runtime_hooks=[],
+    runtime_hooks=['build_exe/runtime_hook.py'],
     excludes=[],
-    noarchive=False,
 )
 pyz = PYZ(a.pure)
 

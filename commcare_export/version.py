@@ -17,7 +17,7 @@ def stored_version():
 
 
 def git_version():
-    if os.environ.get('EXECUTABLE'):
+    if os.environ.get('DET_EXECUTABLE'):
         return None
 
     described_version_bytes = subprocess.Popen(
