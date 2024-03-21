@@ -8,14 +8,7 @@ set -e
 
 cd /src
 
-# make sure setuptools is installed
-if !pip show setuptools &>/dev/null; then
-    pip install setuptools
-fi
+pip install commcare-export
+pip install -r build_exe/requirements.txt
 
-pip install -e .
-cd commcare_export
-cat VERSION
-#pip install -r build_exe/requirements.txt
-
-#pyinstaller --clean -y --dist ./dist/linux --workpath /tmp *.spec
+pyinstaller --clean -y --dist ./dist/linux --workpath /tmp *.spec
