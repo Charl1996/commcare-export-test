@@ -14,6 +14,8 @@ if !pip show setuptools &>/dev/null; then
 fi
 
 pip install -e .
-pip install -r build_exe/requirements.txt
+cd commcare_export
+cat VERSION
+#pip install -r build_exe/requirements.txt
 
-pyinstaller --clean -y --dist ./dist/linux --workpath /tmp *.spec
+#pyinstaller --clean -y --dist ./dist/linux --workpath /tmp *.spec
