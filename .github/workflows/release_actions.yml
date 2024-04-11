@@ -4,6 +4,30 @@ on:
     types: [published]
 
 jobs:
+  generate_linux_bin:
+    name: Generate Linux binary as release asset
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Install pyinstaller
+        shell: bash
+        run: python -m pip install pyinstaller
+
+      - name: Generate exe
+        shell: bash
+        run: |
+          pip install commcare-export
+          pip install -r build_exe/requirements.txt
+          pyinstaller --dist ./dist/linux commcare-export.spec
+
+      - name: Upload release assets
+        uses: AButler/upload-release-assets@v3.0
+        with:
+          files: "./dist/linux/*"
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+
   generate_windows_exe:
     name: Generate Windows exe as release asset
     runs-on: windows-latest
