@@ -18,6 +18,8 @@ jobs:
       - name: Generate exe
         shell: pwsh
         run: |
+          pip install commcare-export
+          pip install -r build_exe/requirements.txt
           pyinstaller --dist ./dist/windows commcare-export.spec
 
       - name: Upload release assets
